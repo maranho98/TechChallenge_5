@@ -160,9 +160,10 @@ st.markdown(
 )
 
 st.subheader("📊 Curva ROC")
-st.image("assets/roc_curve.png",
+st.image(
+    "../assets/roc_curve.png",
     caption="Curva ROC do modelo de regressão logística",
-    use_container_width=True
+    width="stretch"
 )
 st.markdown(
 """
@@ -176,8 +177,8 @@ sendo adequado para triagem preventiva.
 
 st.subheader("📊 Importância das variáveis")
 st.image(
-    "../assets/roc_curve.png",
-    caption="Curva ROC do modelo de regressão logística",
+    "../assets/principais_variaveis.png",
+    caption="Importância das variáveis no modelo de regressão logística",
     width="stretch"
 )
 
