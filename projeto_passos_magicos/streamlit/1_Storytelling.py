@@ -1,5 +1,18 @@
 import streamlit as st
+from pathlib import Path
 
+# ==========================================
+# CONFIGURAÇÃO BASE DO PROJETO
+# ==========================================
+BASE_DIR = Path(__file__).resolve().parent.parent
+ASSETS_DIR = BASE_DIR / "assets"
+
+roc_curve = ASSETS_DIR / "roc_curve.png"
+feature_importance = ASSETS_DIR / "principais_variaveis.png"
+
+# ==========================================
+# CONFIG DA PÁGINA
+# ==========================================
 st.set_page_config(
     page_title="Storytelling - Passos Mágicos",
     page_icon="📘",
@@ -159,12 +172,20 @@ st.markdown(
     """
 )
 
+# =========================================================
+# GRÁFICO ROC
+# =========================================================
 st.subheader("📊 Curva ROC")
-st.image(
-    "../assets/roc_curve.png",
-    caption="Curva ROC do modelo de regressão logística",
-    width="stretch"
-)
+
+if roc_curve.exists():
+    st.image(
+        str(roc_curve),
+        caption="Curva ROC do modelo de regressão logística",
+        width="stretch"
+    )
+else:
+    st.warning("Imagem da curva ROC não encontrada no diretório assets.")
+
 st.markdown(
 """
 A curva ROC demonstra a capacidade do modelo em distinguir alunos
@@ -175,12 +196,19 @@ sendo adequado para triagem preventiva.
 """
 )
 
+# =========================================================
+# IMPORTÂNCIA DAS VARIÁVEIS
+# =========================================================
 st.subheader("📊 Importância das variáveis")
-st.image(
-    "../assets/principais_variaveis.png",
-    caption="Importância das variáveis no modelo de regressão logística",
-    width="stretch"
-)
+
+if feature_importance.exists():
+    st.image(
+        str(feature_importance),
+        caption="Importância das variáveis no modelo de regressão logística",
+        width="stretch"
+    )
+else:
+    st.warning("Imagem de importância das variáveis não encontrada no diretório assets.")
 
 st.divider()
 
@@ -220,6 +248,7 @@ st.markdown(
     mas atua como apoio à tomada de decisão.
     """
 )
+
 st.caption(
 "⚠️ Este modelo identifica padrões estatísticos e não substitui avaliação pedagógica individual."
 )
