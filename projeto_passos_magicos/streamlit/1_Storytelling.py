@@ -176,9 +176,9 @@ sendo adequado para triagem preventiva.
 
 st.subheader("📊 Importância das variáveis")
 st.image(
-    "assets/principais_variaveis.png",
-    caption="Importância das variáveis no modelo de regressão logística",
-    use_container_width=True
+    "../assets/roc_curve.png",
+    caption="Curva ROC do modelo de regressão logística",
+    width="stretch"
 )
 
 st.divider()
