@@ -160,8 +160,7 @@ st.markdown(
 )
 
 st.subheader("📊 Curva ROC")
-st.image(
-    "assets/roc_curve.png",
+st.image("assets/roc_curve.png",
     caption="Curva ROC do modelo de regressão logística",
     use_container_width=True
 )
